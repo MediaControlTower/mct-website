@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#061529">
+  <meta name="description" content="Media Control Tower — a private, self-hosted media centre for households. Currently in development.">
+  <title>Media Control Tower</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="landing" aria-label="Media Control Tower">
+    <details class="site-menu">
+      <summary aria-label="Media Control Tower menu">
+        <img class="menu-logo" src="assets/sunflower-logo.png" alt="" width="96" height="96">
+        <span class="menu-caption">Menu <span class="menu-arrow" aria-hidden="true">▾</span></span>
+      </summary>
+      <div class="menu-panel">
+        <h2>Media Control Tower</h2>
+        <p>Your household’s movies, television and music—together on your home server.</p>
+        <p class="menu-note">This website is taking shape. More to explore soon.</p>
+      </div>
+    </details>
+
+    <div class="scene-stage">
+    <header class="site-brand">
+      <h1><span class="brand-initials" aria-hidden="true">MCT</span><span class="brand-name">Media Control Tower</span></h1>
+      <p>Your media, Your hardware, Your Choice</p>
+    </header>
+<picture class="scene">
+      <source media="(orientation: portrait)" srcset="assets/castle-mobile.png">
+      <img src="assets/castle-desktop.png" alt="An illuminated fantasy castle with terraces for movies, television, photos, music, a media library, search, profiles and devices." fetchpriority="high" decoding="async" width="1672" height="941">
+    </picture>
+    <nav class="attractions" aria-label="Explore MCT features">
+      <button class="attraction" data-feature="movies" style="--x:26%;--y:32.5%;--px:26%;--py:34%" aria-controls="feature-card" aria-expanded="false">Movies &amp; TV</button>
+      <button class="attraction" data-feature="live" style="--x:73%;--y:23.5%;--px:78%;--py:32.4%" aria-controls="feature-card" aria-expanded="false">Live TV</button>
+      <button class="attraction" data-feature="music" style="--x:86%;--y:48.4%;--px:76%;--py:45.6%" aria-controls="feature-card" aria-expanded="false">Jukebox</button>
+      <button class="attraction" data-feature="photos" style="--x:25.2%;--y:56%;--px:26%;--py:46.6%" aria-controls="feature-card" aria-expanded="false">Photos <span class="planned">Planned</span></button>
+      <button class="attraction" data-feature="library" style="--x:67%;--y:51%;--px:76%;--py:59.7%" aria-controls="feature-card" aria-expanded="false">Media Library</button>
+      <button class="attraction" data-feature="search" style="--x:49.5%;--y:74.3%;--px:29%;--py:59.2%" aria-controls="feature-card" aria-expanded="false">Search</button>
+      <button class="attraction" data-feature="devices" style="--x:16.6%;--y:76.5%;--px:78%;--py:74%" aria-controls="feature-card" aria-expanded="false">Devices</button>
+      <button class="attraction" data-feature="profiles" style="--x:83.3%;--y:76.3%;--px:30%;--py:73.8%" aria-controls="feature-card" aria-expanded="false">Personal Libraries</button>
+    </nav>
+    </div>
+    <div class="zeppelin" id="zeppelin">
+      <div class="airship" aria-hidden="true">
+        <img src="assets/zeppelin.png" alt="" width="1536" height="1024">
+        <span class="engine-flame engine-flame-one"></span>
+        <span class="engine-flame engine-flame-two"></span>
+      </div>    <section id="feature-card" class="feature-card" aria-labelledby="feature-title" hidden>
+      <button class="feature-close" aria-label="Close feature description" type="button">×</button>
+      <p class="feature-status" id="feature-status"></p>
+      <h2 id="feature-title"></h2>
+      <p id="feature-description" aria-live="polite" aria-atomic="true"></p>
+    </section>
+    </div>
+    <footer class="development-notice" aria-label="Development status">
+      <p><strong>MCT is currently in active private testing.</strong> <span>Public downloads are coming later.</span></p>
+    </footer>
+  </main>
+  <script src="menu.js" defer></script>
+  <script src="zeppelin.js" defer></script>
+</body>
+</html>

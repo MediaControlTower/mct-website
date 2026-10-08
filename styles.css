@@ -1,0 +1,164 @@
+:root { color-scheme: dark; background: #061529; }
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; }
+.landing { position: relative; isolation: isolate; width: 100%; height: 100vh; height: 100dvh; overflow: hidden; background: #061529; }
+.landing::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, #b7d8ff05 3px 4px),
+    repeating-linear-gradient(90deg, transparent 0 3px, #00000024 3px 4px),
+    radial-gradient(ellipse at 50% 0%, #24496855, transparent 65%),
+    linear-gradient(90deg, #050d18, #102238 18%, #071321 50%, #102238 82%, #050d18);
+}
+.scene { display: block; width: 100%; height: 100%; }
+.scene img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #fff4db; }
+.site-menu { position: absolute; top: max(16px, env(safe-area-inset-top)); left: max(16px, env(safe-area-inset-left)); z-index: 10; }
+.site-menu summary { display: flex; flex-direction: column; align-items: center; gap: 5px; width: max-content; cursor: pointer; list-style: none; border-radius: 50px 50px 12px 12px; -webkit-tap-highlight-color: transparent; }
+.site-menu summary::-webkit-details-marker { display: none; }
+.menu-logo { display: block; width: clamp(64px, 8vw, 96px); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 1px solid #70c9ff; box-shadow: 0 0 18px #1599f84d, 0 4px 16px #0008; }
+.menu-caption { padding: 5px 12px; border: 1px solid #c49b5599; border-radius: 20px; background: #081629ed; color: #fff1ce; font-size: 14px; font-weight: 650; line-height: 1.4; }
+.site-menu summary:hover .menu-caption, .site-menu[open] .menu-caption { border-color: #f4c87a; background: #172b42; }
+.site-menu summary:focus-visible { outline: 3px solid #8ed9ff; outline-offset: 5px; }
+.menu-arrow { display: inline-block; }
+.site-menu[open] .menu-arrow { transform: rotate(180deg); }
+.menu-panel { margin-top: 12px; padding: 20px; width: min(300px, calc(100vw - 48px)); border: 1px solid #b68c4d; border-radius: 14px; background: #081526f5; box-shadow: 0 12px 35px #0009; }
+.menu-panel h2 { margin: 0 0 10px; color: #ffdb94; font-size: 18px; line-height: 1.3; }
+.menu-panel p { margin: 0; font-size: 14px; line-height: 1.55; }
+.menu-panel .menu-note { margin-top: 14px; color: #c0d1e0; font-size: 13px; }
+@media (max-height: 500px) { .menu-logo { width: 52px; } .site-menu { top: max(8px, env(safe-area-inset-top)); } .menu-panel { margin-top: 8px; padding: 14px; } }
+
+/* Keep hotspots anchored to the artwork, including its letterboxed margins. */
+.scene-stage { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(100%, calc(100dvh * 1672 / 941)); aspect-ratio: 1672 / 941; }
+.attractions { position: absolute; inset: 0; pointer-events: none; }
+.attraction { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); pointer-events: auto; min-height: 44px; max-width: 22%; padding: 5px 12px; border: 1px solid #b28e55; border-radius: 6px; background: #081526f2; color: #fff2d5; font: 650 clamp(12px, 1.05vw, 17px)/1.2 system-ui, sans-serif; text-align: center; cursor: pointer; box-shadow: 0 3px 12px #0008; }
+.attraction:hover, .attraction[aria-expanded="true"] { border-color: #8ed9ff; background: #16314b; box-shadow: 0 0 16px #5bbcff66; }
+.attraction:focus-visible, .feature-close:focus-visible { outline: 3px solid #8ed9ff; outline-offset: 3px; }
+.planned { display: block; font-size: 10px; font-weight: 500; color: #ffd48a; }
+.feature-card { position: absolute; z-index: 5; right: max(16px, env(safe-area-inset-right)); top: max(16px, env(safe-area-inset-top)); width: min(320px, calc(100vw - 32px)); padding: 16px 42px 18px 18px; border: 1px solid #d2a75d; border-radius: 12px; background: #081526f5; box-shadow: 0 10px 32px #0009; }
+.feature-card[hidden] { display: none; }
+.feature-card h2 { margin: 4px 0 8px; font-size: 18px; color: #ffdb94; }
+.feature-card p { margin: 0; font-size: 14px; line-height: 1.5; }
+.feature-card .feature-status { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: #bfdaee; }
+.feature-close { position: absolute; right: 0; top: 0; width: 44px; height: 44px; border: 0; background: transparent; color: #fff2d5; font-size: 24px; cursor: pointer; border-radius: 10px; }
+@media (orientation: portrait) {
+  .scene-stage { width: min(100%, calc(100dvh * 941 / 1672)); aspect-ratio: 941 / 1672; }
+  .attraction { left: var(--px); top: var(--py); max-width: 46%; padding: 4px 7px; font-size: clamp(11px, 3vw, 16px); }
+  .feature-card { top: max(112px, calc(env(safe-area-inset-top) + 96px)); left: 50%; right: auto; transform: translateX(-50%); width: min(350px, calc(100vw - 24px)); padding: 10px 40px 12px 14px; }
+  .feature-card h2 { font-size: 16px; margin: 2px 0 5px; }
+  .feature-card p { font-size: 13px; line-height: 1.35; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .attraction { min-height: 36px; padding: 3px 6px; font-size: 11px; }
+  .feature-card { width: 260px; padding: 10px 40px 10px 12px; }
+  .feature-card h2 { font-size: 15px; margin: 2px 0 4px; }
+  .feature-card p { font-size: 12px; }
+}
+
+/* One travelling guide; live HTML keeps its hanging banner readable. */
+.zeppelin { position: absolute; top: 0; left: 0; z-index: 6; width: 270px; pointer-events: none; transition: transform 1181ms cubic-bezier(.22,.68,.2,1); }
+.zeppelin.no-flight { transition: none; }
+.airship { position: relative; width: 195px; margin: 0 auto; transform: rotate(0deg) scaleX(var(--facing, 1)); transition: transform 180ms ease; }
+.airship img { display: block; width: 100%; height: auto; filter: drop-shadow(0 5px 5px #0009); }
+.zeppelin.flying .airship { transform: rotate(var(--bank, -3deg)) scaleX(var(--facing, 1)); }
+.engine-flame { position: absolute; left: 78.5%; width: 24%; height: 6%; opacity: 0; border-radius: 20% 90% 90% 20%; transform-origin: left center; background: linear-gradient(90deg, #eafaff, #69ccff 20%, #ffe99b 42%, #ff9a32 70%, transparent); filter: drop-shadow(0 0 4px #ffb34b); }
+.engine-flame-one { top: 65%; }
+.engine-flame-two { top: 75%; }
+.flying .engine-flame { opacity: 1; animation: engine-burst 160ms ease-in-out infinite alternate; }
+@keyframes engine-burst { from { transform: scaleX(.7); } to { transform: scaleX(1.15); } }
+.zeppelin .feature-card { position: relative; inset: auto; transform: none; width: 100%; margin: 2px 0 0; padding: 12px 38px 16px 16px; border-radius: 3px 3px 14px 14px; border-top: 3px solid #d2a75d; background: linear-gradient(110deg,#0c2037fa,#081526fa); pointer-events: auto; }
+.zeppelin .feature-card::before, .zeppelin .feature-card::after { content: ''; position: absolute; top: -20px; width: 2px; height: 18px; background: #d3aa68; box-shadow: 1px 0 2px #000; }
+.zeppelin .feature-card::before { left: 28%; }
+.zeppelin .feature-card::after { right: 28%; }
+.zeppelin .feature-card h2 { font-size: 17px; }
+.zeppelin .feature-card p { font-size: 13px; line-height: 1.4; }
+.zeppelin .feature-card .feature-status { font-size: 10px; }
+@media (max-width: 600px), (max-height: 500px) {
+  .zeppelin { width: min(220px, calc(100vw - 24px)); }
+  .airship { width: 135px; }
+  .zeppelin .feature-card { padding: 8px 34px 10px 12px; }
+  .zeppelin .feature-card h2 { font-size: 15px; margin: 3px 0 5px; }
+  .zeppelin .feature-card p { font-size: 12px; }
+  .zeppelin .feature-card::before, .zeppelin .feature-card::after { top: -14px; height: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zeppelin, .airship { transition: none; }
+  .zeppelin.flying .airship { transform: none; }
+  .engine-flame { display: none; animation: none; }
+}
+
+.development-notice { position: absolute; z-index: 4; bottom: max(12px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); padding: 9px 16px; border: 1px solid #a1814b; border-radius: 10px; background: #081526f5; box-shadow: 0 3px 16px #0006; text-align: center; }
+.development-notice p { margin: 0; color: #e5eaf0; font-size: 13px; line-height: 1.5; }
+.development-notice strong { color: #ffe0a2; font-weight: 600; }
+@media (max-width: 600px) {
+  .development-notice { width: calc(100% - 24px); max-width: 390px; padding: 8px 10px; }
+  .development-notice p { font-size: 12px; }
+  .development-notice span { display: block; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .development-notice { bottom: max(6px, env(safe-area-inset-bottom)); padding: 5px 12px; }
+  .development-notice p { font-size: 11px; }
+}
+
+/* Keep compact landscape controls comfortable to tap. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .attraction { min-height: 44px; }
+}
+
+
+
+.site-brand { position: absolute; z-index: 5; top: max(28px, env(safe-area-inset-top)); left: calc(max(16px, env(safe-area-inset-left)) + clamp(80px, 8vw, 96px) + 18px); max-width: calc(100% - 160px); text-shadow: 0 2px 8px #000, 0 0 24px #041126; }
+.site-brand h1 { margin: 0; color: #fff0cb; font-size: clamp(22px, 2.8vw, 40px); line-height: 1.15; letter-spacing: -.035em; font-weight: 750; }
+.site-brand p { margin: 8px 0 0; color: #e3edfa; font-size: clamp(12px, 1.15vw, 16px); line-height: 1.4; }
+@media (max-width: 600px) {
+  .site-brand { top: max(24px, env(safe-area-inset-top)); left: calc(max(16px, env(safe-area-inset-left)) + 92px); right: max(12px, env(safe-area-inset-right)); max-width: none; }
+  .site-brand h1 { font-size: clamp(18px, 5vw, 26px); }
+  .site-brand p { margin-top: 6px; font-size: 12px; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-brand { top: max(10px, env(safe-area-inset-top)); left: 108px; }
+  .site-brand h1 { font-size: 21px; }
+  .site-brand p { margin-top: 3px; font-size: 11px; }
+}
+
+/* Transparent typographic wordmark inspired by the supplied MCT reference. */
+.site-brand { top: max(24px, env(safe-area-inset-top)); text-shadow: 0 2px 12px #08223a66; }
+.site-brand h1 { color: #b4dcff; line-height: 1; letter-spacing: normal; }
+.brand-initials { display: block; width: max-content; font-family: "Arial Black", "Segoe UI", sans-serif; font-size: clamp(48px, 5.4vw, 78px); font-weight: 900; line-height: .85; letter-spacing: -.045em; transform: scaleX(1.22); transform-origin: left center; }
+.brand-name { display: block; margin-top: 7px; color: #b4dcff; font-size: clamp(12px, 1.15vw, 17px); font-weight: 750; line-height: 1.1; letter-spacing: .105em; text-transform: uppercase; }
+.site-brand p { margin-top: 10px; color: #c9dced; font-family: "Arial Narrow", "Segoe UI", sans-serif; font-size: clamp(10px, .86vw, 12px); font-weight: 400; letter-spacing: .08em; text-transform: uppercase; }
+@media (max-width: 600px) {
+  .site-brand { top: max(20px, env(safe-area-inset-top)); }
+  .brand-initials { font-size: 47px; }
+  .brand-name { margin-top: 6px; font-size: 10px; letter-spacing: .08em; }
+  .site-brand p { margin-top: 7px; font-size: 9px; line-height: 1.45; letter-spacing: .04em; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-brand { top: max(10px, env(safe-area-inset-top)); }
+  .brand-initials { font-size: 42px; }
+  .brand-name { margin-top: 5px; font-size: 10px; }
+  .site-brand p { margin-top: 5px; font-size: 9px; }
+}
+
+/* Anchor the wordmark inside the artwork, not the surrounding letterbox. */
+.scene-stage .site-brand { top: 24px; left: 10%; right: 12px; max-width: none; width: max-content; max-width: 85%; }
+@media (orientation: portrait) {
+  .scene-stage .site-brand { top: 16px; left: 30%; right: 8px; width: auto; max-width: none; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .scene-stage .site-brand { top: 10px; left: 10%; }
+}
+
+/* Antique brass edging separates the scene from the navy woven surround. */
+.scene-stage::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  border-inline: 1px solid #c7a66a88;
+  box-shadow: -5px 0 0 -3px #07101c, -7px 0 0 -4px #a7864655,
+    5px 0 0 -3px #07101c, 7px 0 0 -4px #a7864655, 0 0 30px #0009;
+}
+@media (orientation: portrait) {
+  .scene-stage::after { border-block: 1px solid #c7a66a66; }
+}
