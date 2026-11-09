@@ -1,4 +1,5 @@
 const zeppelin = document.querySelector('#zeppelin');
+const banner = document.querySelector('#feature-card');
 const landing = document.querySelector('.landing');
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let destination = null;
@@ -27,20 +28,35 @@ function positionAirship(animate = true) {
   if ((!destination || reduceMotion.matches) && x < brandRect.right - bounds.left + 8) y = brandRect.bottom - bounds.top + 12;
   const maxY = Math.max(8, notice.top - bounds.top - height - 8);
   const fit = (cx, cy) => ({ x: clamp(cx, 8, bounds.width - width - 8), y: clamp(cy, 8, maxY) });
-  const overlap = (p, rect) => Math.max(0, Math.min(p.x + width, rect.right - bounds.left) - Math.max(p.x, rect.left - bounds.left)) * Math.max(0, Math.min(p.y + height, rect.bottom - bounds.top) - Math.max(p.y, rect.top - bounds.top));
-  const candidates = [fit(x, y), fit(x, brandRect.bottom - bounds.top + 12)];
-  if (destination && !reduceMotion.matches) {
-    const target = destination.getBoundingClientRect();
+  const overlap = (p, rect, top = p.y) => Math.max(0, Math.min(p.x + width, rect.right - bounds.left) - Math.max(p.x, rect.left - bounds.left)) * Math.max(0, Math.min(p.y + height, rect.bottom - bounds.top) - Math.max(top, rect.top - bounds.top));
+  const target = destination?.getBoundingClientRect();
+  const preferred = fit(x, y);
+  const candidates = [preferred, fit(x, brandRect.bottom - bounds.top + 12)];
+  if (target) {
+    const above = target.top - bounds.top - height - 12;
+    const centered = target.left - bounds.left + (target.width - width) / 2;
     candidates.push(
-      fit(target.right - bounds.left + 12, y),
-      fit(target.left - bounds.left - width - 12, y),
-      fit(x, target.bottom - bounds.top + 12),
+      fit(centered, above),
+      fit(target.right - bounds.left + 12, above),
+      fit(target.left - bounds.left - width - 12, above),
+      fit(centered, target.bottom - bounds.top + 12 - banner.offsetTop),
       fit(8, 8), fit(bounds.width - width - 8, 8)
     );
   }
   const targets = [...document.querySelectorAll('.attraction')];
-  const score = p => (overlap(p, menuRect) + overlap(p, brandRect)) * 1000 + targets.reduce((sum, button) => sum + overlap(p, button.getBoundingClientRect()) * (button === destination ? 1000 : 1), 0);
-  const best = candidates.reduce((best, candidate) => score(candidate) < score(best) ? candidate : best);
+  const score = p => {
+    const distance = Math.hypot(p.x - preferred.x, p.y - preferred.y);
+    const bannerTop = target ? p.y + banner.offsetTop : p.y;
+    const headerOverlap = overlap(p, menuRect, bannerTop) + overlap(p, brandRect, bannerTop);
+    const signOverlap = targets.reduce((sum, button) => sum + overlap(p, button.getBoundingClientRect(), bannerTop), 0);
+    // Keep the banner close to the selected sign even when a distant corner is empty.
+    return headerOverlap * 1000 + signOverlap + distance * 8;
+  };
+  const targetOverlap = p => target ? overlap(p, target, p.y + banner.offsetTop) : 0;
+  const best = candidates.reduce((best, candidate) => {
+    const difference = targetOverlap(candidate) - targetOverlap(best);
+    return (difference || score(candidate) - score(best)) < 0 ? candidate : best;
+  });
   x = best.x;
   y = best.y;
   const moving = placed && animate && !reduceMotion.matches && Math.hypot(x - (current.left - bounds.left), y - (current.top - bounds.top)) > 3;

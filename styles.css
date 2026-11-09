@@ -28,7 +28,11 @@ body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sa
 .menu-panel { margin-top: 12px; padding: 20px; width: min(300px, calc(100vw - 48px)); border: 1px solid #b68c4d; border-radius: 14px; background: #081526f5; box-shadow: 0 12px 35px #0009; }
 .menu-panel h2 { margin: 0 0 10px; color: #ffdb94; font-size: 18px; line-height: 1.3; }
 .menu-panel p { margin: 0; font-size: 14px; line-height: 1.55; }
-.menu-panel .menu-note { margin-top: 14px; color: #c0d1e0; font-size: 13px; }
+.menu-panel { max-height: calc(100dvh - 160px); overflow-y: auto; }
+.menu-links { display: grid; gap: 4px; margin-top: 12px; }
+.menu-links a { padding: 5px 4px; }
+.menu-links a, .brand-links a, .feature-link, .parents-page a, .features-page a { color: #ffdb94; text-underline-offset: .2em; }
+a:focus-visible { outline: 2px solid #8ed9ff; outline-offset: 2px; }
 @media (max-height: 500px) { .menu-logo { width: 52px; } .site-menu { top: max(8px, env(safe-area-inset-top)); } .menu-panel { margin-top: 8px; padding: 14px; } }
 
 /* Keep hotspots anchored to the artwork, including its letterboxed margins. */
@@ -37,12 +41,11 @@ body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sa
 .attraction { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); pointer-events: auto; min-height: 44px; max-width: 22%; padding: 5px 12px; border: 1px solid #b28e55; border-radius: 6px; background: #081526f2; color: #fff2d5; font: 650 clamp(12px, 1.05vw, 17px)/1.2 system-ui, sans-serif; text-align: center; cursor: pointer; box-shadow: 0 3px 12px #0008; }
 .attraction:hover, .attraction[aria-expanded="true"] { border-color: #8ed9ff; background: #16314b; box-shadow: 0 0 16px #5bbcff66; }
 .attraction:focus-visible, .feature-close:focus-visible { outline: 3px solid #8ed9ff; outline-offset: 3px; }
-.planned { display: block; font-size: 10px; font-weight: 500; color: #ffd48a; }
 .feature-card { position: absolute; z-index: 5; right: max(16px, env(safe-area-inset-right)); top: max(16px, env(safe-area-inset-top)); width: min(320px, calc(100vw - 32px)); padding: 16px 42px 18px 18px; border: 1px solid #d2a75d; border-radius: 12px; background: #081526f5; box-shadow: 0 10px 32px #0009; }
 .feature-card[hidden] { display: none; }
 .feature-card h2 { margin: 4px 0 8px; font-size: 18px; color: #ffdb94; }
 .feature-card p { margin: 0; font-size: 14px; line-height: 1.5; }
-.feature-card .feature-status { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: #bfdaee; }
+.feature-link { display: inline-block; margin-top: 6px; padding: 4px 0; font-size: 13px; font-weight: 650; }
 .feature-close { position: absolute; right: 0; top: 0; width: 44px; height: 44px; border: 0; background: transparent; color: #fff2d5; font-size: 24px; cursor: pointer; border-radius: 10px; }
 @media (orientation: portrait) {
   .scene-stage { width: min(100%, calc(100dvh * 941 / 1672)); aspect-ratio: 941 / 1672; }
@@ -75,7 +78,6 @@ body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sa
 .zeppelin .feature-card::after { right: 28%; }
 .zeppelin .feature-card h2 { font-size: 17px; }
 .zeppelin .feature-card p { font-size: 13px; line-height: 1.4; }
-.zeppelin .feature-card .feature-status { font-size: 10px; }
 @media (max-width: 600px), (max-height: 500px) {
   .zeppelin { width: min(220px, calc(100vw - 24px)); }
   .airship { width: 135px; }
@@ -151,6 +153,37 @@ body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sa
 @media (max-height: 500px) and (orientation: landscape) {
   .scene-stage .site-brand { top: 10px; left: 10%; }
 }
+
+.brand-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 12px; margin-top: 8px; color: #fff4db; font-size: clamp(11px, 1vw, 14px); line-height: 1.35; }
+.brand-links a { white-space: nowrap; }
+@media (max-height: 520px) {
+  .scene-stage .site-brand { top: 6px; }
+  .brand-initials { font-size: 32px; }
+  .brand-links { margin-top: 4px; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .scene-stage .site-brand { left: max(10%, 100px); }
+}
+@media (max-height: 360px) and (orientation: landscape) {
+  .brand-initials { font-size: 26px; }
+  .brand-links { margin-top: 2px; }
+}
+
+.parents-page, .features-page { width: min(720px, 100%); margin-inline: auto; padding: clamp(24px, 6vw, 64px); line-height: 1.6; }
+.parents-page h1, .features-page h1 { margin: 28px 0 8px; color: #b4dcff; font-size: clamp(32px, 6vw, 52px); line-height: 1.1; }
+.parents-page h2 { margin: 28px 0 6px; color: #ffdb94; font-size: 21px; line-height: 1.3; }
+.parents-page p { margin: 0 0 12px; color: #e3edfa; }
+.parents-page .parents-intro { font-size: clamp(18px, 3vw, 23px); font-weight: 650; }
+.features-page { width: min(960px, 100%); }
+.features-page p { margin: 8px 0 16px; color: #e3edfa; }
+.feature-page-nav, .feature-index { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.feature-index { padding: 16px 0; }
+.features-page section { border-top: 1px solid #c7a66a66; margin-top: 20px; padding: 24px 0; scroll-margin-top: 16px; }
+.features-page section:focus { outline: none; border-top-color: #ffdb94; }
+.features-page h2 { color: #b4dcff; font-size: clamp(24px, 4vw, 36px); line-height: 1.15; margin: 0 0 12px; }
+.features-page figure { margin: 18px 0; }
+.features-page figure img, .features-page video { display: block; width: 100%; height: auto; border: 1px solid #c7a66a66; border-radius: 10px; }
+.features-page figcaption { margin-top: 6px; color: #c9dced; font-size: 14px; }
 
 /* Antique brass edging separates the scene from the navy woven surround. */
 .scene-stage::after {

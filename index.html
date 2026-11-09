@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#061529">
   <meta name="description" content="Media Control Tower — a private, self-hosted media centre for households. Currently in development.">
   <title>Media Control Tower</title>
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,7 +19,17 @@
       <div class="menu-panel">
         <h2>Media Control Tower</h2>
         <p>Your household’s movies, television and music—together on your home server.</p>
-        <p class="menu-note">This website is taking shape. More to explore soon.</p>
+        <nav class="menu-links" aria-label="Explore MCT">
+          <a href="features.html#movies">Movies &amp; Shows</a>
+          <a href="features.html#live">Live TV &amp; Guides</a>
+          <a href="features.html#music">Sound &amp; Stories</a>
+          <a href="features.html#gallery">Gallery</a>
+          <a href="features.html#library">Media Library</a>
+          <a href="features.html#statistics">Statistics &amp; Companions</a>
+          <a href="features.html#devices">Devices</a>
+          <a href="features.html#profiles">Family Profiles</a>
+          <a href="parents.html">MCT for Parents</a>
+        </nav>
       </div>
     </details>
 
@@ -26,20 +37,24 @@
     <header class="site-brand">
       <h1><span class="brand-initials" aria-hidden="true">MCT</span><span class="brand-name">Media Control Tower</span></h1>
       <p>Your media, Your hardware, Your Choice</p>
+      <div class="brand-links">
+        <strong>Free to use. No subscription.</strong>
+        <a href="parents.html">MCT for Parents</a>
+      </div>
     </header>
 <picture class="scene">
       <source media="(orientation: portrait)" srcset="assets/castle-mobile.png">
-      <img src="assets/castle-desktop.png" alt="An illuminated fantasy castle with terraces for movies, television, photos, music, a media library, search, profiles and devices." fetchpriority="high" decoding="async" width="1672" height="941">
+      <img src="assets/castle-desktop.png" alt="An illuminated fantasy castle with a cinema, a broadcast tower, a neon jukebox and a room full of glowing screens." fetchpriority="high" decoding="async" width="1672" height="941">
     </picture>
     <nav class="attractions" aria-label="Explore MCT features">
-      <button class="attraction" data-feature="movies" style="--x:26%;--y:32.5%;--px:26%;--py:34%" aria-controls="feature-card" aria-expanded="false">Movies &amp; TV</button>
-      <button class="attraction" data-feature="live" style="--x:73%;--y:23.5%;--px:78%;--py:32.4%" aria-controls="feature-card" aria-expanded="false">Live TV</button>
-      <button class="attraction" data-feature="music" style="--x:86%;--y:48.4%;--px:76%;--py:45.6%" aria-controls="feature-card" aria-expanded="false">Jukebox</button>
-      <button class="attraction" data-feature="photos" style="--x:25.2%;--y:56%;--px:26%;--py:46.6%" aria-controls="feature-card" aria-expanded="false">Photos <span class="planned">Planned</span></button>
+      <button class="attraction" data-feature="movies" style="--x:26%;--y:32.5%;--px:26%;--py:34%" aria-controls="feature-card" aria-expanded="false">Movies &amp; Shows</button>
+      <button class="attraction" data-feature="live" style="--x:73%;--y:23.5%;--px:78%;--py:32.4%" aria-controls="feature-card" aria-expanded="false">Live TV &amp; Guides</button>
+      <button class="attraction" data-feature="music" style="--x:86%;--y:48.4%;--px:76%;--py:45.6%" aria-controls="feature-card" aria-expanded="false">Sound &amp; Stories</button>
+      <button class="attraction" data-feature="gallery" style="--x:25.2%;--y:56%;--px:26%;--py:46.6%" aria-controls="feature-card" aria-expanded="false">Gallery</button>
       <button class="attraction" data-feature="library" style="--x:67%;--y:51%;--px:76%;--py:59.7%" aria-controls="feature-card" aria-expanded="false">Media Library</button>
-      <button class="attraction" data-feature="search" style="--x:49.5%;--y:74.3%;--px:29%;--py:59.2%" aria-controls="feature-card" aria-expanded="false">Search</button>
+      <button class="attraction" data-feature="statistics" style="--x:49.5%;--y:74.3%;--px:29%;--py:59.2%" aria-controls="feature-card" aria-expanded="false">Statistics &amp; Companions</button>
       <button class="attraction" data-feature="devices" style="--x:16.6%;--y:76.5%;--px:78%;--py:74%" aria-controls="feature-card" aria-expanded="false">Devices</button>
-      <button class="attraction" data-feature="profiles" style="--x:83.3%;--y:76.3%;--px:30%;--py:73.8%" aria-controls="feature-card" aria-expanded="false">Personal Libraries</button>
+      <button class="attraction" data-feature="profiles" style="--x:83.3%;--y:76.3%;--px:30%;--py:73.8%" aria-controls="feature-card" aria-expanded="false">Family Profiles</button>
     </nav>
     </div>
     <div class="zeppelin" id="zeppelin">
@@ -49,9 +64,9 @@
         <span class="engine-flame engine-flame-two"></span>
       </div>    <section id="feature-card" class="feature-card" aria-labelledby="feature-title" hidden>
       <button class="feature-close" aria-label="Close feature description" type="button">×</button>
-      <p class="feature-status" id="feature-status"></p>
       <h2 id="feature-title"></h2>
       <p id="feature-description" aria-live="polite" aria-atomic="true"></p>
+      <a class="feature-link" id="feature-link" href="features.html">Explore this feature</a>
     </section>
     </div>
     <footer class="development-notice" aria-label="Development status">

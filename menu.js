@@ -11,17 +11,18 @@ document.addEventListener('click', (event) => {
 });
 
 const features = {
-  movies: ['Movies & TV', 'Your movies. Your shows. Pick up where you left off—with subtitles in sync.'],
-  live: ['Live TV', 'Browse your IPTV channels, save favourites and see what’s on next.'],
-  music: ['Jukebox', 'Spin an album, tune into radio, make a Mix Tape or settle into an audiobook.'],
-  photos: ['Photos', 'Planned: turn an old tablet into a frame for your favourite memories.'],
-  library: ['Media Library', 'Your collection, beautifully organised—with posters, cast and episode details.'],
-  search: ['Search', 'Less searching. More watching. Find your next pick across your libraries.'],
-  devices: ['Devices', 'One dashboard for your Firesticks. Check connections, versions and updates.'],
-  profiles: ['Personal Libraries', 'Shared favourites, personal collections. Make room for everyone’s tastes.'],
+  movies: 'Browse your movies, shows and kids’ collections. Resume where you left off or leave a family review.',
+  live: 'Bring your own IPTV playlist and programme guide (EPG). Save favourite channels and see what’s on.',
+  music: 'Play your albums, tune into internet radio, make a Mix Tape or settle into an audiobook.',
+  gallery: 'Browse your household photos or turn a spare tablet into a digital photo frame.',
+  library: 'Organise your collections, edit details and search across your media from one place.',
+  statistics: 'See your watching time and favourites, raise companions, and explore the Stable and Treasure Chest.',
+  devices: 'Use MCT on Android devices and Firesticks. Check your Firesticks from the server dashboard.',
+  profiles: 'Give each person their own viewing progress and access to the collections they use.',
 };
 const buttons = [...document.querySelectorAll('.attraction')];
 const card = document.querySelector('#feature-card');
+const featureLink = document.querySelector('#feature-link');
 let activeButton = null;
 let pinned = false;
 let closeTimer;
@@ -44,10 +45,12 @@ function showFeature(button) {
   if (activeButton !== button) pinned = false;
   clearTimeout(closeTimer);
   activeButton = button;
-  const [title, description] = features[button.dataset.feature];
+  const title = button.textContent;
+  const feature = button.dataset.feature;
   document.querySelector('#feature-title').textContent = title;
-  document.querySelector('#feature-description').textContent = description;
-  document.querySelector('#feature-status').textContent = button.dataset.feature === 'photos' ? 'Future feature' : 'Explore MCT';
+  document.querySelector('#feature-description').textContent = features[feature];
+  featureLink.href = `features.html#${feature}`;
+  featureLink.textContent = `Explore ${title}`;
   buttons.forEach(item => item.setAttribute('aria-expanded', String(item === button)));
   card.hidden = false;
   document.dispatchEvent(new CustomEvent('mct:feature-show', { detail: { button } }));
@@ -67,6 +70,12 @@ buttons.forEach(button => {
     if (!restoringFocus && button.matches(':focus-visible')) showFeature(button);
   });
   button.addEventListener('blur', scheduleClose);
+  button.addEventListener('keydown', event => {
+    if (event.key === 'Tab' && !event.shiftKey && activeButton === button && !card.hidden) {
+      event.preventDefault();
+      featureLink.focus();
+    }
+  });
   button.addEventListener('click', () => {
     if (activeButton === button && pinned) hideFeature();
     else { menu.open = false; showFeature(button); pinned = true; }
