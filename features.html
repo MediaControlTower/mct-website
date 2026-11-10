@@ -8,15 +8,17 @@
   <title>Explore MCT | Media Control Tower</title>
   <link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32">
   <link rel="stylesheet" href="styles.css">
+  <script src="feature-rooms.js" defer></script>
 </head>
-<body>
+<body class="features-body">
   <main class="features-page">
     <nav class="feature-page-nav" aria-label="Website">
       <a href="./">← Back to the castle</a>
       <a href="parents.html">MCT for Parents</a>
     </nav>
     <h1>Explore MCT</h1>
-    <p>Your household’s media, together on your own home server.</p>
+    <p><strong>One app for your household’s media.</strong> Movies, shows, music, radio, audiobooks and photos run from your own home computer. Library tools, subtitle downloads and sync, family profiles and playback progress are built in, so there’s no plugin stack to assemble.</p>
+    <p>MCT is designed to keep CPU and memory use low during everyday playback. When your device supports the file, MCT streams it directly from your server.</p>
     <nav class="feature-index" aria-label="Features">
       <a href="#movies">Movies &amp; Shows</a>
       <a href="#live">Live TV &amp; Guides</a>
@@ -28,46 +30,286 @@
       <a href="#profiles">Family Profiles</a>
     </nav>
 
-    <section id="movies" aria-labelledby="movies-title" tabindex="-1">
-      <h2 id="movies-title">Movies &amp; Shows</h2>
-      <p>Browse your own movies, series and kids’ collections by poster. Pick up where you left off, select a season or episode, and find subtitles when you need them.</p>
-      <figure>
-        <img src="assets/features/movies.webp" alt="Movie posters alongside the selected film’s details and playback controls" width="1280" height="800" loading="lazy">
-        <figcaption>Browse posters and see the details before pressing play.</figcaption>
-      </figure>
-      <p>Personal reviews give family members a place to record what they thought of a film, show or episode.</p>
+    <section id="movies" class="feature-room" aria-labelledby="movies-title" tabindex="-1">
+      <header class="room-header">
+        <span>The Stronghold Cinema</span>
+        <h2 id="movies-title">Movies &amp; Shows</h2>
+        <p>Find the next film in a series, finish an episode on another Firestick, and fix subtitles that drift out of sync.</p>
+      </header>
+      <div class="room-layout">
+        <div class="room-signs" role="group" aria-label="Movies and shows topics"></div>
+        <div class="room-topics">
+          <details name="cinema-topic" open>
+            <summary>Film Collections</summary>
+            <div class="room-panel" id="film-collections">
+              <h3>Film Collections</h3>
+              <ul>
+                <li><strong>Browse the series in release order.</strong> MCT groups related films automatically. Open <strong>Browse collection</strong> from a film’s details to see the titles you have.</li>
+                <li><strong>Spot gaps in your collection.</strong> Run a missing-movie check on the MCT computer to see which released films are absent from your library.</li>
+                <li><strong>Find something to watch.</strong> Browse by poster, search by title or jump to recently added films. Connect TMDB to fill in artwork, descriptions, cast and episode details. Correct a match or choose different artwork when needed.</li>
+              </ul>
+              <figure>
+                <img src="assets/features/movies-with-review.webp" alt="Stronghold movie library showing The Lantern Keepers, its family ratings, and the Browse collection and Personal Reviews buttons" width="1280" height="800" loading="lazy">
+                <figcaption>See the family’s scores while you browse, then open <strong>Personal Reviews</strong> to read the reaction. <span class="review-reaction">Saved reaction from Kids Demo <q>I loved it!</q></span></figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="cinema-topic">
+            <summary>Subtitle Downloads &amp; Sync</summary>
+            <div class="room-panel" id="subtitle-sync">
+              <h3>Subtitle Downloads &amp; Sync</h3>
+              <p>On the MCT computer, connect a subtitle provider under <strong>Settings → Connections &amp; services → Subtitles</strong>. In the browser, select a movie or episode, open <strong>CC+</strong> and choose a result to download.</p>
+              <p>With automatic sync set up, MCT compares the subtitle timing with speech in your video. It can shift lines that appear too early or too late and correct drift when subtitles start in sync but fall out of step as the video plays. If MCT can’t confidently match the timing, it keeps the original and marks the subtitle for review.</p>
+              <ul>
+                <li>Use a compatible subtitle already in the video, import your own file or search for another release.</li>
+                <li>Queue subtitle downloads for upcoming episodes, a season or a whole show from the MCT computer.</li>
+              </ul>
+              <figure>
+                <img src="assets/features/movies-with-review.webp" alt="The Lantern Keepers movie details show family ratings and a CC+ subtitle button beside the playback controls" width="1280" height="800" loading="lazy">
+                <figcaption>Look for <strong>CC+</strong> beside the playback controls. The same panel shows the family’s scores above <strong>Personal Reviews</strong>. <span class="review-reaction">Saved reaction from Kids Demo <q>I loved it!</q></span></figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="cinema-topic">
+            <summary>Resume &amp; Playback</summary>
+            <div class="room-panel" id="resume-and-playback">
+              <h3>Resume &amp; Playback</h3>
+              <ul>
+                <li><strong>Resume in another room.</strong> Your profile’s viewing progress follows you between Firesticks.</li>
+                <li><strong>Watch in order or shuffle a show.</strong> Jump to a season, resume the next episode, or play a random episode on Firestick without changing your regular Continue Watching progress.</li>
+                <li><strong>Catch up your watch history.</strong> Mark an episode, a season or an entire show watched or unwatched.</li>
+                <li><strong>Play files your Firestick can’t handle directly.</strong> MCT can convert compatible video or audio for playback on demand while keeping the original file intact.</li>
+              </ul>
+              <figure>
+                <img src="assets/features/resume-playback.webp" alt="Three little trolls race between two castle living rooms with a remote and a bowl of popcorn. Both TVs show the same airship scene." width="1280" height="800" loading="lazy">
+                <figcaption>Same episode. New sofa. Most of the popcorn made it.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="cinema-topic">
+            <summary>Family Reviews</summary>
+            <div class="room-panel" id="family-reviews">
+              <h3>Family Reviews</h3>
+              <p>Kids can leave a review right from their own profile. Open <strong>Add Review</strong>, pick a rating or a quick reaction like <strong>I loved it!</strong>, choose a snack and drink pairing if they like, and save. Family members can compare their scores for movies, shows and individual episodes.</p>
+              <p><strong>Earn Dexterinoos for sharing what you thought.</strong> Each profile can earn 5 Dexterinoos for its first review of a title, plus 5 for its first snack pick and 5 for its first drink pick. The coins go into the Treasure Chest and can be spent on snacks to feed <a href="#statistics">companions</a>.</p>
+              <figure class="review-example">
+                <img src="assets/features/family-reviews.webp" alt="The MCT review form with ratings of 9 overall and 7 for funny, an I loved it reaction, popcorn and juice selected, and a Save review button" width="680" height="800" loading="lazy">
+                <figcaption>A review in a demo profile. A rating, a quick reaction and a popcorn-and-juice pairing are ready to save.</figcaption>
+              </figure>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
-    <section id="live" aria-labelledby="live-title" tabindex="-1">
-      <h2 id="live-title">Live TV &amp; Guides</h2>
-      <p>Bring your own IPTV playlist and electronic programme guide (EPG). Save your favourite channels, then use your TV Guide to see what’s on now and what’s coming up from your guide data.</p>
-      <figure>
-        <img src="assets/features/live.webp" alt="TV Guide listing programmes for three sample favourite channels" width="1280" height="800" loading="lazy">
-        <figcaption>The TV Guide with sample channels and schedules.</figcaption>
-      </figure>
+    <section id="live" class="feature-room" aria-labelledby="live-title" tabindex="-1">
+      <header class="room-header">
+        <span>The Stronghold Broadcast Tower</span>
+        <h2 id="live-title">Live TV &amp; Guides</h2>
+        <p>See what’s on across the channels you actually watch, then tune in straight from the guide.</p>
+      </header>
+      <div class="room-layout">
+        <div class="room-signs" role="group" aria-label="Live TV and guide topics"></div>
+        <div class="room-topics">
+          <details name="live-topic" open>
+            <summary>Your Favourite Channels</summary>
+            <div class="room-panel" id="favourite-channels">
+              <h3>Your Favourite Channels</h3>
+              <p>Save the channels you watch as favourites in IPTV. Your TV Guide shows <strong>only your favourite channels</strong>, with what’s on now and what’s coming up from your own programme guide.</p>
+              <figure>
+                <img src="assets/features/live.webp" alt="The TV Guide showing schedules for three sample favourite channels" width="1280" height="800" loading="lazy">
+                <figcaption>A sample TV Guide with three favourite channels and their upcoming programmes.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="live-topic">
+            <summary>Watch from the Guide</summary>
+            <div class="room-panel" id="watch-from-guide">
+              <h3>Watch from the Guide</h3>
+              <p>See something you want to watch? Select its programme listing and choose <strong>Watch channel</strong> to tune in live. You can also select a channel’s name directly in the guide.</p>
+              <p><strong>Automatic reconnect on Firestick.</strong> If a live channel freezes, MCT can try reconnecting to the same channel for you.</p>
+              <figure>
+                <img src="assets/features/watch-from-guide.webp" alt="A selected programme in MCT’s TV Guide with a Watch channel button in the details panel" width="1280" height="800" loading="lazy">
+                <figcaption>Select a programme to see its details and jump straight to the live channel.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="live-topic">
+            <summary>Your Playlists &amp; Providers</summary>
+            <div class="room-panel" id="iptv-playlist">
+              <h3>Your Playlists &amp; Providers</h3>
+              <p><strong>Bring your own legal IPTV sources.</strong> Use MCT with licensed services you’re authorised to watch or free-to-air streams made available for public viewing. MCT provides the player. You supply the playlist or provider login and the electronic programme guide (EPG).</p>
+              <ul>
+                <li><strong>Save multiple IPTV providers.</strong> Live TV brings the channels from your enabled providers together, while their accounts, programme guides and stream limits stay separate.</li>
+                <li><strong>Switch between saved servers.</strong> If a provider gives you alternative server addresses, save them once and pick another server from the list when you need it.</li>
+              </ul>
+              <figure>
+                <img src="assets/features/iptv-provider.webp" alt="The MCT Provider connections dashboard with two sample IPTV accounts and a choice of primary or backup server for Harbour TV" width="1151" height="900" loading="lazy">
+                <figcaption>Two sample providers, with primary and backup server addresses saved for Harbour TV. <a href="assets/features/iptv-provider.webp">Open full-size screenshot</a></figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="live-topic">
+            <summary>One Server, Multiple TVs</summary>
+            <div class="room-panel" id="iptv-multiple-tvs">
+              <h3>One Server, Multiple TVs</h3>
+              <p>Connect the TVs around your home to the same MCT server. When your IPTV plan allows multiple streams, people in different rooms can watch different channels at the same time.</p>
+              <p>In <strong>Provider connections</strong> on the MCT computer, set the <strong>Maximum concurrent streams</strong> for each provider to match your plan. You can see which devices are streaming and stop a stream from there to free up a slot.</p>
+              <figure>
+                <img src="assets/features/iptv-multi-tv.webp" alt="The MCT dashboard showing a limit of three streams, with sample living-room and kitchen TVs using two slots" width="1151" height="900" loading="lazy">
+                <figcaption>Two sample TVs are using two of this provider’s three stream slots. <a href="assets/features/iptv-multi-tv.webp">Open full-size screenshot</a></figcaption>
+              </figure>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
-    <section id="music" aria-labelledby="music-title" tabindex="-1">
-      <h2 id="music-title">Sound &amp; Stories</h2>
-      <p>Play your albums, find an internet radio station, make a Mix Tape or settle into an audiobook. The audiobook player remembers where you stopped.</p>
-      <figure>
-        <img src="assets/features/sound-and-stories.webp" alt="Sound &amp; Stories with tabs for web radio, music, Mix Tapes and audiobooks" width="1280" height="800" loading="lazy">
-        <figcaption>Switch between radio, music, Mix Tapes and audiobooks from one screen.</figcaption>
-      </figure>
+    <section id="music" class="feature-room" aria-labelledby="music-title" tabindex="-1">
+      <header class="room-header">
+        <span>The Stronghold Listening Room</span>
+        <h2 id="music-title">Sound &amp; Stories</h2>
+        <p>Find a station, put on an album, make a Mix Tape or take a story with you. Add your own photos and a family quiz while the music plays.</p>
+      </header>
+      <div class="room-layout">
+        <div class="room-signs" role="group" aria-label="Sound and Stories topics"></div>
+        <div class="room-topics">
+          <details name="sound-topic" open>
+            <summary>Web Radio</summary>
+            <div class="room-panel" id="web-radio">
+              <h3>Web Radio</h3>
+              <p><strong>Find a station and keep it handy.</strong> Search by station name or browse by genre, then save the stations you like to Favourites. Already have a stream link? Open <strong>Web Radio → Add station</strong> on the MCT computer and paste the URL.</p>
+              <p>Open <strong>Gallery Slideshow</strong> and pick one of your saved photo albums while the station keeps playing. Turn on <strong>Quiz</strong> in the slideshow settings and see who calls out the answer first.</p>
+              <figure>
+                <img src="assets/features/sound-and-stories.webp" alt="Sound &amp; Stories showing sample internet radio stations and a Listen live button" width="1280" height="800" loading="lazy">
+                <figcaption>Choose a station and start listening from Sound &amp; Stories.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="sound-topic">
+            <summary>My Music</summary>
+            <div class="room-panel" id="my-music">
+              <h3>My Music</h3>
+              <p><strong>Give the music you own a proper home.</strong> Browse local artists, albums and songs, with artwork where available. Play an album in order, shuffle an artist’s albums, or see what’s coming up in the queue. Compilations stay together and each track keeps its artist credit.</p>
+              <p>Put on an old favourite and let photos from your own albums rotate on screen. Add quiz questions to the slideshow and give everyone in the room something to guess.</p>
+              <figure>
+                <img src="assets/features/my-music.webp" alt="The My Music tab showing albums by a sample artist" width="1280" height="800" loading="lazy">
+                <figcaption>Open an artist to browse their albums and tracks.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="sound-topic">
+            <summary>Mix Tapes</summary>
+            <div class="room-panel" id="mix-tapes">
+              <h3>Mix Tapes</h3>
+              <p><strong>Make a playlist for the mood you’re in.</strong> Add individual songs, a whole album or tracks by an artist from your music library. Save a Kitchen Disco for dinner prep or a Sunday Slowdown for a quieter morning.</p>
+              <p>Pair your mix with a slideshow from your saved albums, then switch on the quiz for a family game night with its own soundtrack.</p>
+              <figure>
+                <img src="assets/features/mix-tapes.webp" alt="The Kitchen Disco sample Mix Tape showing its songs and Play all control" width="1280" height="800" loading="lazy">
+                <figcaption>Play a favourite track or start the whole Mix Tape.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="sound-topic">
+            <summary>Audiobooks</summary>
+            <div class="room-panel" id="audiobooks">
+              <h3>Audiobooks</h3>
+              <p><strong>Take the next chapter with you.</strong> On your Android phone or tablet, open an audiobook and choose <strong>Download</strong> while you’re on Wi-Fi. Every chapter is saved on that device, so you can keep listening offline with the screen locked.</p>
+              <p><strong>Pick up at home where you stopped.</strong> When the app reconnects to your MCT server on your home network, it syncs your listening position automatically. Reopen MCT when you get home if you closed it on the way.</p>
+              <figure>
+                <img src="assets/features/audiobooks.webp" alt="The Audiobooks tab with a sample book, its chapter list and a Play or resume button" width="1280" height="800" loading="lazy">
+                <figcaption>Browse chapters or resume from the listening position saved to your profile.</figcaption>
+              </figure>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
-    <section id="gallery" aria-labelledby="gallery-title" tabindex="-1">
-      <h2 id="gallery-title">Gallery</h2>
-      <p>Choose your photo collections, browse them on a bigger screen or put a spare Android tablet to work as a digital photo frame. Set the timing and transitions, and choose whether to show the clock and captions.</p>
-      <figure>
-        <img src="assets/features/gallery.webp" alt="Gallery slideshow displaying an illustration of two glowing moons" width="1280" height="720" loading="lazy">
-        <figcaption>A full-screen Gallery slideshow can run alongside music.</figcaption>
-      </figure>
+    <section id="gallery" class="feature-room" aria-labelledby="gallery-title" tabindex="-1">
+      <header class="room-header">
+        <span>The Stronghold Picture Gallery</span>
+        <h2 id="gallery-title">Gallery</h2>
+        <p>Put your photos on the big screen when people come over, or bring an old phone or tablet back to life as a digital frame.</p>
+      </header>
+      <div class="room-layout">
+        <div class="room-signs" role="group" aria-label="Gallery topics"></div>
+        <div class="room-topics">
+          <details name="gallery-topic" open>
+            <summary>Photos on the Big Screen</summary>
+            <div class="room-panel" id="gallery-tv">
+              <h3>Photos on the Big Screen</h3>
+              <p><strong>Give guests something to gather around.</strong> Pick photo albums from your MCT server and put a full-screen slideshow on the TV for a birthday, a family visit or an evening with friends.</p>
+              <p>Set the pace and transitions, shuffle your pictures, or show a clock and captions. Play music or a Mix Tape from <a href="#music">Sound &amp; Stories</a> alongside the photos, and turn on Quiz if the room feels like a game.</p>
+              <figure>
+                <img src="assets/features/gallery.webp" alt="A full-screen MCT slideshow showing two glowing moons, music information, a clock and a quiz question" width="1280" height="720" loading="lazy">
+                <figcaption>Gallery on the TV with music, the clock and an optional quiz question.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="gallery-topic">
+            <summary>Bring Old Devices Back to Life</summary>
+            <div class="room-panel" id="gallery-digital-frames">
+              <h3>Bring Old Devices Back to Life</h3>
+              <p><strong>Turn a spare Android phone or tablet into a digital photo frame.</strong> Give that device in the drawer a new job on the kitchen counter or a bookshelf, playing the photos you want to see every day.</p>
+              <p>In <strong>Gallery → Choose galleries</strong>, pick albums from your MCT server or add a photo folder already on the device. A slideshow using only local folders can run without Wi-Fi. With a dedicated Gallery profile, you can schedule the display to go dark overnight and resume in the morning.</p>
+              <figure>
+                <img src="assets/features/gallery-digital-frames.webp" alt="A Stronghold troll closes a drawer of old cables beside a tablet and phone displaying family photos on stands" width="1280" height="800" loading="lazy">
+                <figcaption>Out of the drawer and back on display.</figcaption>
+              </figure>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
-    <section id="library" aria-labelledby="library-title" tabindex="-1">
-      <h2 id="library-title">Media Library</h2>
-      <p>Connect the folders on your home server, organise them into collections, and refresh the catalogue when you add new files. Edit details such as titles and artwork, then use Search to find something across your libraries.</p>
+    <section id="library" class="feature-room" aria-labelledby="library-title" tabindex="-1">
+      <header class="room-header">
+        <span>The Stronghold Library</span>
+        <h2 id="library-title">Media Library</h2>
+        <p>Bring files from different drives into one library, scan what changed, and give each title the artwork and details you want.</p>
+      </header>
+      <div class="room-layout">
+        <div class="room-signs" role="group" aria-label="Media Library topics"></div>
+        <div class="room-topics">
+          <details name="library-topic" open>
+            <summary>Multiple Folders, One Library</summary>
+            <div class="room-panel" id="library-folders">
+              <h3>Multiple Folders, One Library</h3>
+              <p><strong>Two drives can feed the same Movies library.</strong> Keep films in <code>D:\Movies</code> and <code>E:\Movies</code> and browse them together in one Movies menu. MCT indexes the files where they already live.</p>
+              <p>On the MCT computer, open <strong>Libraries</strong>, choose <strong>Folders</strong> on the library you want to expand, then select <strong>Add folder</strong>. Save the folders and scan that library to bring in the new titles.</p>
+              <figure class="folder-example">
+                <img src="assets/features/library-folders.webp" alt="The Movies folders dialog with D drive Movies as the original folder and E drive Movies as an additional folder" width="640" height="466" loading="lazy">
+                <figcaption>Two folders on different drives feed the same Movies menu.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="library-topic">
+            <summary>Scan One Library at a Time</summary>
+            <div class="room-panel" id="library-scans">
+              <h3>Scan One Library at a Time</h3>
+              <p>Added a few films? Select <strong>Scan</strong> on the Movies library card to update that catalogue. Each library has its own controls, so you can refresh movies, shows or another collection as you need it.</p>
+              <p>Use <strong>Settings → Library refresh</strong> to schedule daily or weekly scans. Once files are indexed, use <strong>Search</strong> to find a title across your libraries.</p>
+              <figure>
+                <img src="assets/features/library-scans.webp" alt="MCT library cards with separate Scan and Folders buttons for each collection" width="1250" height="703" loading="lazy">
+                <figcaption>Each library card has its own Scan and Folders controls. <a href="assets/features/library-scans.webp">Open full-size screenshot</a></figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="library-topic">
+            <summary>Edit Details &amp; Upload Artwork</summary>
+            <div class="room-panel" id="library-metadata">
+              <h3>Edit Details &amp; Upload Artwork</h3>
+              <p>Open <strong>Metadata</strong> on the MCT computer and select an item to edit. Fix a film’s title, description, year or age rating, or upload your own cover with <strong>Choose cover</strong>. Artwork can be a JPG, PNG or WebP up to 10 MB.</p>
+              <p>Use filters to find missing artwork or descriptions, correct an online match, or fill in details for your own recordings. The available fields follow the media type. You can edit show, season or episode details, photo captions, and information for audiobooks and music. MCT saves your changes alongside the media and keeps the original file intact.</p>
+              <figure>
+                <img src="assets/features/library-metadata.webp" alt="The MCT Metadata editor with a sample movie selected and controls for cover artwork, title, year, age rating and description" width="1026" height="960" loading="lazy">
+                <figcaption>Choose your own cover or edit the details for a sample film. <a href="assets/features/library-metadata.webp">Open full-size screenshot</a></figcaption>
+              </figure>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
     <section id="statistics" aria-labelledby="statistics-title" tabindex="-1">

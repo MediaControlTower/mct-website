@@ -174,16 +174,58 @@ a:focus-visible { outline: 2px solid #8ed9ff; outline-offset: 2px; }
 .parents-page h2 { margin: 28px 0 6px; color: #ffdb94; font-size: 21px; line-height: 1.3; }
 .parents-page p { margin: 0 0 12px; color: #e3edfa; }
 .parents-page .parents-intro { font-size: clamp(18px, 3vw, 23px); font-weight: 650; }
-.features-page { width: min(960px, 100%); }
+.features-body { background: radial-gradient(ellipse at 50% 0%, #23364d, transparent 48rem), #081526; }
+.features-page { width: min(1640px, 100%); padding: clamp(16px, 3.5vw, 56px); }
 .features-page p { margin: 8px 0 16px; color: #e3edfa; }
+.features-page > p { max-width: 78ch; }
 .feature-page-nav, .feature-index { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-.feature-index { padding: 16px 0; }
+.feature-index { padding: 16px 0; gap: 8px; }
+.feature-index a { padding: 5px 12px; border: 1px solid #99734e; border-radius: 5px; background: #151c28; text-decoration: none; }
+.feature-index a:hover { border-color: #ffdb94; }
 .features-page section { border-top: 1px solid #c7a66a66; margin-top: 20px; padding: 24px 0; scroll-margin-top: 16px; }
+.features-page section:not(.feature-room) { max-width: 900px; margin-inline: auto; }
 .features-page section:focus { outline: none; border-top-color: #ffdb94; }
 .features-page h2 { color: #b4dcff; font-size: clamp(24px, 4vw, 36px); line-height: 1.15; margin: 0 0 12px; }
 .features-page figure { margin: 18px 0; }
 .features-page figure img, .features-page video { display: block; width: 100%; height: auto; border: 1px solid #c7a66a66; border-radius: 10px; }
 .features-page figcaption { margin-top: 6px; color: #c9dced; font-size: 14px; }
+
+.features-page .feature-room { padding: 0; border: 1px solid #a17d4d; border-radius: 12px; background: #090f18; box-shadow: 0 16px 44px #0006; }
+#movies { --room-art: url('assets/features/cinema-banner.jpg'); }
+#live { --room-art: url('assets/features/tv-guide-banner.jpg'); }
+#music { --room-art: url('assets/features/listening-room-banner.jpg'); }
+#gallery { --room-art: url('assets/features/gallery-banner.jpg'); }
+#library { --room-art: url('assets/features/library-banner.webp'); }
+.room-header { padding: clamp(20px, 4vw, 52px); border-bottom: 1px solid #a17d4d; border-radius: 11px 11px 0 0; background: linear-gradient(90deg, #080d16f5, #080d16a8 62%, #080d1655), var(--room-art) center / cover; }
+.room-header span { color: #ffdb94; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+.room-header h2, .room-panel h3 { color: #ffebc1; font-family: Georgia, serif; }
+.room-header h2 { margin: 6px 0 10px; font-size: clamp(32px, 5vw, 54px); }
+.room-header p { max-width: 54ch; margin: 0; }
+.room-layout { padding: clamp(12px, 2vw, 26px); }
+.room-signs { display: none; }
+.room-topics { min-width: 0; }
+.room-topics details + details { margin-top: 10px; }
+.room-topics summary, .room-signs button { padding: 10px 14px; border: 1px solid #a17d4d; border-radius: 6px; color: #ffebc1; background: linear-gradient(#282222, #161922); font: 600 17px/1.45 Georgia, serif; cursor: pointer; }
+.room-topics summary:hover, .room-signs button:hover { border-color: #ffdb94; }
+.room-topics details[open] > summary, .room-signs button[aria-pressed="true"] { border-color: #ffdb94; background: linear-gradient(#483825, #25202a); box-shadow: inset 0 0 0 2px #ae855844; }
+.room-topics summary:focus-visible, .room-signs button:focus-visible { outline: 2px solid #8ed9ff; outline-offset: 3px; }
+.room-panel { margin-top: 8px; padding: clamp(14px, 2.4vw, 30px); border: 1px solid #8a694b88; border-radius: 8px; background: linear-gradient(130deg, #151e2a, #0c1520); }
+.room-panel h3 { display: none; margin: 0 0 12px; font-size: clamp(22px, 3vw, 33px); line-height: 1.2; }
+.room-panel p, .room-panel li { max-width: 76ch; }
+.room-panel ul { margin: 8px 0 16px; padding-inline-start: 1.4em; color: #e3edfa; }
+.room-panel li + li { margin-top: 6px; }
+.room-panel figure { max-width: 1050px; margin-bottom: 0; }
+.room-panel .review-example, .room-panel .folder-example { max-width: 680px; }
+.review-reaction { display: block; margin-top: 6px; color: #ffebc1; }
+.review-reaction q { margin-inline-start: 6px; font-weight: 650; }
+@media (min-width: 860px) {
+  .room-ready { display: grid; grid-template-columns: clamp(200px, 22vw, 290px) minmax(0, 1fr); align-items: start; gap: clamp(16px, 3vw, 40px); }
+  .room-ready .room-signs { display: grid; gap: 10px; }
+  .room-signs button { text-align: left; }
+  .room-ready .room-topics summary { display: none; }
+  .room-ready .room-topics details + details, .room-ready .room-panel { margin-top: 0; }
+  .room-ready .room-panel h3 { display: block; }
+}
 
 /* Antique brass edging separates the scene from the navy woven surround. */
 .scene-stage::after {

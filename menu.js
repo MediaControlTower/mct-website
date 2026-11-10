@@ -11,11 +11,11 @@ document.addEventListener('click', (event) => {
 });
 
 const features = {
-  movies: 'Browse your movies, shows and kids’ collections. Resume where you left off or leave a family review.',
-  live: 'Bring your own IPTV playlist and programme guide (EPG). Save favourite channels and see what’s on.',
-  music: 'Play your albums, tune into internet radio, make a Mix Tape or settle into an audiobook.',
-  gallery: 'Browse your household photos or turn a spare tablet into a digital photo frame.',
-  library: 'Organise your collections, edit details and search across your media from one place.',
+  movies: 'Browse films in release order, resume a show in another room, and download subtitles that MCT can sync to your video.',
+  live: 'Bring your own authorised IPTV service. See what’s on your favourite channels and tune in straight from the guide.',
+  music: 'Save favourite radio stations, play your albums and Mix Tapes, or take an audiobook with you on Android.',
+  gallery: 'Put a photo slideshow on the TV when guests come over, or turn a spare Android phone or tablet into a digital frame.',
+  library: 'Group folders from different drives into one library, scan each collection separately and add your own artwork.',
   statistics: 'See your watching time and favourites, raise companions, and explore the Stable and Treasure Chest.',
   devices: 'Use MCT on Android devices and Firesticks. Check your Firesticks from the server dashboard.',
   profiles: 'Give each person their own viewing progress and access to the collections they use.',
