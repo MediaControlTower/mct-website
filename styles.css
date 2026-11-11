@@ -192,6 +192,7 @@ a:focus-visible { outline: 2px solid #8ed9ff; outline-offset: 2px; }
 
 .features-page .feature-room { padding: 0; border: 1px solid #a17d4d; border-radius: 12px; background: #090f18; box-shadow: 0 16px 44px #0006; }
 #movies { --room-art: url('assets/features/cinema-banner.jpg'); }
+#home { --room-art: url('assets/features/home-banner.jpg'); }
 #live { --room-art: url('assets/features/tv-guide-banner.jpg'); }
 #music { --room-art: url('assets/features/listening-room-banner.jpg'); }
 #gallery { --room-art: url('assets/features/gallery-banner.jpg'); }

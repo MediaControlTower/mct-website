@@ -11,6 +11,8 @@ const files = new Map([
   ['/index.html', ['index.html', 'text/html; charset=utf-8']],
   ['/parents.html', ['parents.html', 'text/html; charset=utf-8']],
   ['/features.html', ['features.html', 'text/html; charset=utf-8']],
+  ['/assets/features/home-banner.jpg', ['assets/features/home-banner.jpg', 'image/jpeg']],
+  ['/assets/features/home-screen.webp', ['assets/features/home-screen.webp', 'image/webp']],
   ['/assets/features/movies.webp', ['assets/features/movies.webp', 'image/webp']],
   ['/assets/features/movies-with-review.webp', ['assets/features/movies-with-review.webp', 'image/webp']],
   ['/assets/features/cinema-banner.jpg', ['assets/features/cinema-banner.jpg', 'image/jpeg']],
