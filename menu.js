@@ -17,7 +17,7 @@ const features = {
   gallery: 'Put a photo slideshow on the TV when guests come over, or turn a spare Android phone or tablet into a digital frame.',
   library: 'Group folders from different drives into one library, scan each collection separately and add your own artwork.',
   statistics: 'See your watching time and favourites, raise companions, and explore the Stable and Treasure Chest.',
-  devices: 'Use MCT on Android devices and Firesticks. Check your Firesticks from the server dashboard.',
+  devices: 'MCT runs lightly on compatible Android devices and Firesticks, including older hardware.',
   profiles: 'Give each person their own viewing progress and access to the collections they use.',
 };
 const buttons = [...document.querySelectorAll('.attraction')];

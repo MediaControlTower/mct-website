@@ -28,6 +28,7 @@
       <a href="#statistics">Statistics &amp; Companions</a>
       <a href="#devices">Devices</a>
       <a href="#profiles">Family Profiles</a>
+      <a href="#backup">Backup &amp; Transfer</a>
     </nav>
 
     <section id="movies" class="feature-room" aria-labelledby="movies-title" tabindex="-1">
@@ -46,7 +47,8 @@
               <ul>
                 <li><strong>Browse the series in release order.</strong> MCT groups related films automatically. Open <strong>Browse collection</strong> from a film’s details to see the titles you have.</li>
                 <li><strong>Spot gaps in your collection.</strong> Run a missing-movie check on the MCT computer to see which released films are absent from your library.</li>
-                <li><strong>Find something to watch.</strong> Browse by poster, search by title or jump to recently added films. Connect TMDB to fill in artwork, descriptions, cast and episode details. Correct a match or choose different artwork when needed.</li>
+                <li><strong>Find a new arrival or an old favourite.</strong> Open <strong>Recently added</strong> to see what’s new, jump to a letter using the alphabet rail, or type part of a movie’s title into <strong>Find a title</strong>.</li>
+                <li><strong>Browse by poster.</strong> Connect TMDB to fill in artwork, descriptions, cast and episode details. Correct a match or choose different artwork when needed.</li>
               </ul>
               <figure>
                 <img src="assets/features/movies-with-review.webp" alt="Stronghold movie library showing The Lantern Keepers, its family ratings, and the Browse collection and Personal Reviews buttons" width="1280" height="800" loading="lazy">
@@ -91,7 +93,7 @@
             <div class="room-panel" id="family-reviews">
               <h3>Family Reviews</h3>
               <p>Kids can leave a review right from their own profile. Open <strong>Add Review</strong>, pick a rating or a quick reaction like <strong>I loved it!</strong>, choose a snack and drink pairing if they like, and save. Family members can compare their scores for movies, shows and individual episodes.</p>
-              <p><strong>Earn Dexterinoos for sharing what you thought.</strong> Each profile can earn 5 Dexterinoos for its first review of a title, plus 5 for its first snack pick and 5 for its first drink pick. The coins go into the Treasure Chest and can be spent on snacks to feed <a href="#statistics">companions</a>.</p>
+              <p><strong>Earn Dexterino's for sharing what you thought.</strong> Each profile can earn 5 Dexterino's for its first review of a title, plus 5 for its first snack pick and 5 for its first drink pick. The coins go into the Treasure Chest and can be spent on snacks to feed <a href="#statistics">companions</a>.</p>
               <figure class="review-example">
                 <img src="assets/features/family-reviews.webp" alt="The MCT review form with ratings of 9 overall and 7 for funny, an I loved it reaction, popcorn and juice selected, and a Save review button" width="680" height="800" loading="lazy">
                 <figcaption>A review in a demo profile. A rating, a quick reaction and a popcorn-and-juice pairing are ready to save.</figcaption>
@@ -312,32 +314,168 @@
       </div>
     </section>
 
-    <section id="statistics" aria-labelledby="statistics-title" tabindex="-1">
-      <h2 id="statistics-title">Statistics &amp; Companions</h2>
-      <p>See watching time and favourites for each profile. Kids can collect and care for companions, visit the Stable, and spend earned Dexterinoos on snacks from the Treasure Chest.</p>
-      <figure>
-        <video controls playsinline preload="none" width="1280" height="800" poster="assets/features/statistics.webp" aria-label="Silent demo of feeding a companion">
-          <source src="assets/features/feeding-a-companion.mp4" type="video/mp4">
-          <a href="assets/features/feeding-a-companion.mp4">Download the companion demo</a>
-        </video>
-        <figcaption>A quick demo with sample data. Select Feed to give a companion its daily meal and see its growth progress update.</figcaption>
-      </figure>
-      <p>Companion sets are free to download. Coins and levels are earned in MCT and can’t be bought with real money.</p>
-      <p><a href="parents.html">See how Parent Rewards works</a> for homework, chores and cooking.</p>
+    <section id="statistics" class="feature-room" aria-labelledby="statistics-title" tabindex="-1">
+      <header class="room-header">
+        <h2 id="statistics-title">Statistics &amp; Companions</h2>
+        <p>Reward what kids do away from the TV. Parents can award Dexterino's for homework, chores or helping with cooking. Collecting and upgrading companions is free. Coins, packs and upgrades cannot be bought with real money.</p>
+      </header>
+      <div class="room-layout">
+        <div class="room-signs" role="group" aria-label="Statistics and companion topics"></div>
+        <div class="room-topics">
+          <details name="statistics-topic">
+            <summary>Statistics</summary>
+            <div class="room-panel" id="profile-statistics">
+              <h3>Statistics</h3>
+              <p>See watching time and favourites for each profile, including frequently watched films and shows and favourite artists and radio stations.</p>
+              <figure>
+                <img src="assets/features/statistics-current.webp" alt="Watching time and favourites for a demo profile." width="744" height="382" loading="lazy">
+                <figcaption>Watching time and favourites for a demo profile.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="statistics-topic" open>
+            <summary>Companions</summary>
+            <div class="room-panel" id="companion-packs">
+              <h3>Companions</h3>
+              <p>Collect companions, feed them and unlock new artwork and powers as they grow. Companion packs and level expansions are free to download.</p>
+              <p><strong>Add a pack or level expansion.</strong> Import the downloaded ZIP on the MCT computer under <strong>Settings → Appearance &amp; personalisation → Companion packs</strong>. Packs add companions. Level expansions add artwork and powers to existing companions and carry over each profile’s progress.</p>
+              <figure>
+                <img src="assets/features/companions-current.webp" alt="Active companions and the selected companion’s growth and powers." width="1280" height="889" loading="lazy">
+                <figcaption>Active companions and the selected companion’s growth and powers.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="statistics-topic">
+            <summary>Stable</summary>
+            <div class="room-panel" id="companion-stable">
+              <h3>Stable</h3>
+              <p>Browse your collection in the Stable. See which companions are resting and bring one back out when you want to make it active again.</p>
+              <figure>
+                <img src="assets/features/stable-current.webp" alt="The Stable with resting companions in a demo collection." width="1280" height="889" loading="lazy">
+                <figcaption>The Stable with resting companions in a demo collection.</figcaption>
+              </figure>
+            </div>
+          </details>
+          <details name="statistics-topic">
+            <summary>Treasure Chest</summary>
+            <div class="room-panel" id="companion-treasure">
+              <h3>Treasure Chest</h3>
+              <p>A parent can award Dexterino's for helping with dinner. The coins go into the child’s Treasure Chest, where they can spend them on snacks for their companions. <a href="parents.html">See how Parent Rewards works</a>.</p>
+              <figure>
+                <img src="assets/features/chest-current.webp" alt="The Treasure Chest shows the coin balance, Food Shop and Cupboard." width="1280" height="889" loading="lazy">
+                <figcaption>The Treasure Chest shows the coin balance, Food Shop and Cupboard.</figcaption>
+              </figure>
+              <figure>
+                <video controls playsinline preload="none" width="1280" height="888" poster="assets/features/companions-current.webp" aria-label="Silent demo of feeding a companion">
+                  <source src="assets/features/feeding-current.mp4" type="video/mp4">
+                </video>
+                <figcaption>Give a companion its daily meal and see its growth progress update.</figcaption>
+              </figure>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
-    <section id="devices" aria-labelledby="devices-title" tabindex="-1">
-      <h2 id="devices-title">Devices</h2>
-      <p>Use MCT on Android devices and Amazon Fire TV Sticks. From the server dashboard, see which Firesticks are reachable, check their app versions and manage updates.</p>
+    <section id="devices" class="feature-room" aria-labelledby="devices-title" tabindex="-1">
+      <header class="room-header">
+        <span>The Stronghold Observatory</span>
+        <h2 id="devices-title">Devices</h2>
+        <p>MCT is designed to run lightly on compatible Android phones, tablets and Amazon Fire TV Sticks, including older devices.</p>
+      </header>
+      <div class="room-layout">
+        <div class="room-signs" role="group" aria-label="Device topics"></div>
+        <div class="room-topics">
+          <details name="devices-topic" open>
+            <summary>Keep Older Devices Useful</summary>
+            <div class="room-panel" id="older-devices">
+              <h3>Keep Older Devices Useful</h3>
+              <p>Your home server manages the library, and compatible devices can play supported files directly. MCT can prepare compatible streams for Firesticks when the original format needs conversion.</p>
+              <p>Even a Samsung Galaxy S7 running Android 8 has been tested as a digital photo frame. A spare phone or tablet can get a new job around the house. <a href="#gallery">Explore Gallery</a></p>
+            </div>
+          </details>
+          <details name="devices-topic">
+            <summary>Your Devices at a Glance</summary>
+            <div class="room-panel" id="manage-firesticks">
+              <h3>Your Devices at a Glance</h3>
+              <p>See which phones, tablets and Firesticks are connected, check their installed MCT versions, and give each device a name you recognise.</p>
+              <p>Once MCT is available in app stores, app updates will come through the store on each device.</p>
+              <figure>
+                <img src="assets/features/device-dashboard.webp" alt="MCT dashboard cards for sample Firesticks, an Android phone and a tablet, showing connection status and installed versions" width="970" height="708" loading="lazy">
+                <figcaption>The Devices dashboard with sample devices. <a href="assets/features/device-dashboard.webp">Open full-size screenshot</a></figcaption>
+              </figure>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
-    <section id="profiles" aria-labelledby="profiles-title" tabindex="-1">
-      <h2 id="profiles-title">Family Profiles</h2>
-      <p>Give each family member their own viewing progress, favourites and companions. Choose which collections each person sees, so kids can start in their own corner of the library.</p>
-      <figure>
-        <img src="assets/features/profiles.webp" alt="MCT profile chooser with sample Family and Kids profiles" width="1280" height="800" loading="lazy">
-        <figcaption>Choose a profile when you open MCT.</figcaption>
-      </figure>
+    <section id="profiles" class="feature-room" aria-labelledby="profiles-title" tabindex="-1">
+      <header class="room-header">
+        <span>The Stronghold Profile Hall</span>
+        <h2 id="profiles-title">Family Profiles</h2>
+        <p>Give each family member their own library access, viewing progress, favourites and companions.</p>
+      </header>
+      <div class="room-layout">
+        <div class="room-signs" role="group" aria-label="Family Profiles topics"></div>
+        <div class="room-topics">
+          <details name="profiles-topic" open>
+            <summary>Set Up a Profile</summary>
+            <div class="room-panel" id="profile-settings">
+              <h3>Set Up a Profile</h3>
+              <p>On the MCT computer, open <strong>Profiles</strong> in the sidebar. Choose <strong>Create profile</strong> or select <strong>Edit</strong> on an existing profile. Give it a name and picture, then choose its starting screen and skin. Select <strong>Save profile</strong> to apply your choices.</p>
+              <figure><img src="assets/features/profile-settings.webp" alt="The MCT profile settings box for a demo profile" width="880" height="312" loading="lazy"><figcaption>Choose a name and profile picture in the profile settings box.</figcaption></figure>
+            </div>
+          </details>
+          <details name="profiles-topic">
+            <summary>Choose What Each Person Can See</summary>
+            <div class="room-panel" id="profile-media">
+              <h3>Choose What Each Person Can See</h3>
+              <p>Choose which menu items and media libraries each profile can open. Share an entire library, select individual titles or hide the library. For IPTV, allow or block groups, hide individual channels, or hide live IPTV and on-demand content separately.</p>
+              <figure><img src="assets/features/profile-access.webp" alt="Profile settings showing the Live IPTV access selector and on-demand controls" width="830" height="229" loading="lazy"><figcaption>Use the IPTV content controls to tailor what a profile can watch.</figcaption></figure>
+            </div>
+          </details>
+          <details name="profiles-topic">
+            <summary>Screen Time &amp; Progress</summary>
+            <div class="room-panel" id="profile-progress">
+              <h3>Screen Time &amp; Progress</h3>
+              <p>Set an optional daily screen time allowance or add extra minutes for today. An optional PIN protects access to the profile. Use the login activity setting to see the profile’s last login on its card.</p>
+              <p>Each profile keeps its own viewing and listening progress, favourites and <a href="#statistics">companion progress</a>.</p>
+              <figure><img src="assets/features/profile-limits.webp" alt="Profile settings showing the daily screen time allowance and PIN controls" width="880" height="577" loading="lazy"><figcaption>Screen time and PIN settings for a demo profile.</figcaption></figure>
+              <figure><img src="assets/features/profiles.webp" alt="MCT profile chooser with sample Family and Kids profiles" width="1280" height="800" loading="lazy"><figcaption>Choose a profile when you open MCT.</figcaption></figure>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="backup" class="feature-room" aria-labelledby="backup-title" tabindex="-1">
+      <header class="room-header">
+        <span>The Stronghold Archive</span>
+        <h2 id="backup-title">Backup &amp; Transfer</h2>
+        <p>Move your MCT setup to another computer on your home network and pick up with the settings and progress you already have.</p>
+      </header>
+      <div class="room-layout">
+        <div class="room-signs" role="group" aria-label="Backup &amp; Transfer topics"></div>
+        <div class="room-topics">
+          <details name="backup-topic" open>
+            <summary>Export Your Setup</summary>
+            <div class="room-panel" id="export-setup">
+              <h3>Export Your Setup</h3>
+              <p>On your current MCT computer, open <strong>Backup &amp; Transfer</strong> in the sidebar and choose <strong>Download MCT transfer file</strong>. The file carries supported settings and records such as folder mappings, device names, favourites, metadata and viewing progress.</p>
+              <figure><img src="assets/features/backup-transfer.webp" alt="MCT Backup and Transfer screen with Download MCT transfer file and Choose transfer file controls" width="1130" height="397" loading="lazy"><figcaption>Export your setup on the old computer and open the transfer file on the new one.</figcaption></figure>
+            </div>
+          </details>
+          <details name="backup-topic">
+            <summary>Move to a New Server</summary>
+            <div class="room-panel" id="import-setup">
+              <h3>Move to a New Server</h3>
+              <p>On the new MCT computer, open <strong>Backup &amp; Transfer</strong>, choose the exported JSON file and review the preview before confirming the import. Imported records merge with existing metadata and viewing progress.</p>
+              <p>Move your media separately, update the library paths where needed and scan the libraries. Reconnect external accounts and set profile PINs again on the new server.</p>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
   </main>
 </body>

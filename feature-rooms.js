@@ -4,7 +4,8 @@ for (const room of document.querySelectorAll('.room-layout')) {
   const signs = room.querySelector('.room-signs');
   const topics = [...room.querySelectorAll('.room-topics details')];
 
-  if (!wide.matches) topics[0].open = false;
+  const defaultTopic = topics.find(topic => topic.open) ?? topics[0];
+  if (!wide.matches) defaultTopic.open = false;
 
   const buttons = topics.map(topic => {
     const button = document.createElement('button');
@@ -21,7 +22,7 @@ for (const room of document.querySelectorAll('.room-layout')) {
   }
 
   wide.addEventListener('change', () => {
-    if (wide.matches && !topics.some(topic => topic.open)) topics[0].open = true;
+    if (wide.matches && !topics.some(topic => topic.open)) defaultTopic.open = true;
   });
   topics.forEach(topic => topic.addEventListener('toggle', updateSigns));
   updateSigns();

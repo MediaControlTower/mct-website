@@ -196,6 +196,10 @@ a:focus-visible { outline: 2px solid #8ed9ff; outline-offset: 2px; }
 #music { --room-art: url('assets/features/listening-room-banner.jpg'); }
 #gallery { --room-art: url('assets/features/gallery-banner.jpg'); }
 #library { --room-art: url('assets/features/library-banner.webp'); }
+#statistics { --room-art: url('assets/castle-desktop.png'); }
+#devices { --room-art: url('assets/features/devices-observatory.webp'); }
+#profiles { --room-art: url('assets/features/profiles-banner.webp'); }
+#backup { --room-art: url('assets/features/backup-banner.webp'); }
 .room-header { padding: clamp(20px, 4vw, 52px); border-bottom: 1px solid #a17d4d; border-radius: 11px 11px 0 0; background: linear-gradient(90deg, #080d16f5, #080d16a8 62%, #080d1655), var(--room-art) center / cover; }
 .room-header span { color: #ffdb94; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
 .room-header h2, .room-panel h3 { color: #ffebc1; font-family: Georgia, serif; }
