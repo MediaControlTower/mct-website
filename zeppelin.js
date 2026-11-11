@@ -77,7 +77,8 @@ function positionAirship(animate = true) {
     zeppelin.classList.toggle('no-flight', !moving);
     zeppelin.classList.toggle('flying', moving);
     zeppelin.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    if (moving) flightTimer = setTimeout(() => zeppelin.classList.remove('flying'), flightDuration);
+    if (moving) flightTimer = setTimeout(() => zeppelin.classList.remove('flying', 'returning'), flightDuration);
+    else zeppelin.classList.remove('returning');
   };
   if (turning) turnTimer = setTimeout(depart, 180);
   else depart();
@@ -86,11 +87,14 @@ function positionAirship(animate = true) {
 document.addEventListener('mct:feature-show', event => {
   clearTimeout(homeTimer);
   destination = event.detail.button;
+  zeppelin.classList.remove('returning');
   zeppelin.classList.add('has-banner');
   positionAirship();
 });
 document.addEventListener('mct:feature-hide', () => {
+  if (!destination) return;
   destination = null;
+  zeppelin.classList.add('returning');
   zeppelin.classList.remove('has-banner');
   clearTimeout(homeTimer);
   homeTimer = setTimeout(() => positionAirship(), 450);
